@@ -1,0 +1,16 @@
+.box {
+    $r: 50;
+    $p: 45;
+    $x: 2 * math.sqrt($r * $r -$p* $p);
+    height: 200px;
+    margin: 5px;
+    border: 1px solid;
+    $bg: radial-gradient(#{$r}px at 50% #{$r + $p}px,
+        red 100%,
+        transparent 101%) calc(50% - #{$r}px) 0 / #{2 * $x}px 100% repeat-x,
+    radial-gradient(#{$r}px at 50% #{-$p}px,
+        transparent 100%,
+        red 101%) 50% #{$r}px / #{2 * $x}px 100% repeat-x;
+    mask: $bg;
+    --webkit-mask: $bg;
+}
